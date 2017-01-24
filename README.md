@@ -69,3 +69,7 @@ Here is the DC/OS service JSON
   "secrets": null,
   "taskKillGracePeriodSeconds": null
 }
+
+curl for livy job submit
+
+curl -v -H "Content-Type: application/json" -X POST -d '{ "file": "https://<storage>.blob.core.windows.net/myjars/spark-examples_2.11-2.0.1.jar", "className":"org.apache.spark.examples.SparkPi", "args": ["100"] }' 'http://localhost/service/livy-spark2/batches'
