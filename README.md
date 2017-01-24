@@ -46,12 +46,28 @@ Here is the DC/OS service JSON
           "name": "livy",
           "servicePort": 10007,
           "hostPort": 0
+        },
+        {
+          "containerPort": 4040,
+          "protocol": "tcp",
+          "name": "sparkui",
+          "servicePort": 10008,
+          "hostPort": 0
         }
       ],
       "network": "USER"
     }
   },
-  "healthChecks": null,
+  "healthChecks": [
+    {
+      "protocol": "HTTP",
+      "gracePeriodSeconds": 300,
+      "intervalSeconds": 60,
+      "timeoutSeconds": 123,
+      "maxConsecutiveFailures": 3,
+      "ignoreHttp1xx": false
+    }
+  ],
   "readinessChecks": null,
   "dependencies": null,
   "upgradeStrategy": {
