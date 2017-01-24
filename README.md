@@ -9,7 +9,9 @@ which will expose the port `8998` on the Docker host for this image.
 
 Have a look at the [official docs](https://github.com/cloudera/livy#rest-api) to see how to use the Livy REST API.
 
-For exposing the service URL to http://localhost/service/livy-spark2/, you will need the labels as shown in the json below. Also, breaking docker rules and running spark-mesos-dispatcher in this too :)
+For exposing the service URL to http://localhost/service/livy-spark2/, you will need the labels as shown in the json below.
+
+Also, breaking docker rules and running spark-mesos-dispatcher in this too :) Had to run the mesos dispatcher as spark would not download jars via http/s. This is due to https://issues.apache.org/jira/browse/SPARK-10643
 
 Here is the DC/OS service JSON
 
